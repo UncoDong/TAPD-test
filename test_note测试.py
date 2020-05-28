@@ -1,8 +1,8 @@
 import pytest
 import json
 from utils import *
-json_file = open("test_file.json",'r',encoding='gbk')
-json_file2 = open("test_file2.json",'r',encoding='gbk')  
+json_file = open("note_file.json",'r',encoding='gbk')
+json_file2 = open("note_file2.json",'r',encoding='gbk')  
 a = json.load(json_file)
 b = json.load(json_file2)
 # 读取数据
