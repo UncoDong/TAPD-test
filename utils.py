@@ -1,7 +1,6 @@
 from music21 import *
 import librosa
 import matplotlib.pyplot as plt
-import librosa.display
 import numpy as np
 
 
@@ -174,3 +173,21 @@ def str2tone(music_str):
 
 tone_list = ['1','2','3','4','5','6','7']
 
+
+def music2note1(data,unit_rate):
+    
+    index = (data!=0).argmax(axis=0)
+    return librosa.hz_to_note((index+1)*unit_rate)
+
+
+def music2note2(i,unit_rate):
+    note = []
+    for j in range(len(i)):
+        #第一个非0值
+        if i[j]>0 and len(note)==0:
+            #频率转换音符
+            note_str = librosa.hz_to_note((j+1)*unit_rate)
+            note.append(note_str)
+    if len(note)==1:
+        return note[0]
+    return  None
