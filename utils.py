@@ -175,7 +175,8 @@ tone_list = ['1','2','3','4','5','6','7']
 
 
 def music2note1(data,unit_rate):
-    
+    if data.max() == 0:
+        return None
     index = (data!=0).argmax(axis=0)
     return librosa.hz_to_note((index+1)*unit_rate)
 
